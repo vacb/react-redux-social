@@ -4,6 +4,7 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { PostAuthor } from './PostAuthor'
+import { TimeAgo } from './TimeAgo'
 
 export const PostsList = () => {
   //Read the state.posts value from the Redux store
@@ -15,6 +16,8 @@ export const PostsList = () => {
       <h3>{post.title}</h3>
       <p className="post-content">{post.content.substring(0, 100)}</p>
       <PostAuthor userId={post.user} />
+      <TimeAgo timestamp={post.date} />
+      <br />
       <Link to={`/posts/${post.id}`} className="button muted-button">
         View Post
       </Link>
